@@ -12,8 +12,10 @@ It will be based on the [RFC](https://datatracker.ietf.org/doc/html/rfc6238), so
 ## Usage
 ```sh
 sudo apt update
-sudo apt install python3 python3-pip
+sudo apt install git python3 python3-pip
 pip3 install qrcode
+```
+```sh
 git clone git@github.com:Skalyaeve/ft_otp.git
 cd ft_otp
 chmod +x *.py
