@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-sfrom argparse import ArgumentParser
+from argparse import ArgumentParser
 from os.path import exists
 from qrcode import make
 from tkinter import Tk, Frame, Button, Label, font as tkFont
 from tkinter.font import Font as tkFont
 from PIL.ImageTk import PhotoImage
 
-from FtHOTP import FtHOTP
+from ftHOTP import FtHOTP
 
 
 def load_tk(value: str, generateQR: bool):
@@ -85,8 +85,15 @@ if __name__ == "__main__":
         exit(1)
     if args.generate:
         if not is_hex(args.generate) or len(args.generate) != 64:
-            print("ft_otp: [ERROR] Key must be 64 hexadecimal characters")
-            exit(1)
+            try:
+                with open(args.generate, "r") as file:
+                    args.generate = file.read()
+                    if not is_hex(args.generate) or len(args.generate) != 64:
+                        print("ft_otp: [ERROR] Key must be 64 hexadecimal characters")
+                        exit(1)
+            except:
+                print("ft_otp: [ERROR] Key must be 64 hexadecimal characters")
+                exit(1)
         try:
             print(key_filename)
             with open("ft_otp.key", "w") as file:

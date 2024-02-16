@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from hashlib import sha1
-from hmac import new as hmac
+from hmac import new as hmac_new
 from time import time
 
 
@@ -11,7 +11,7 @@ class FtHOTP:
 
     def hotp(self):
         counter = (int(time())).to_bytes(9, "big")
-        hmac_sha1 = hmac(self.key, counter, sha1).digest()
+        hmac_sha1 = hmac_new(self.key, counter, sha1).digest()
         offset = hmac_sha1[-1] & 0xF
         p1 = (hmac_sha1[offset] & 0x7F) << 24
         p2 = (hmac_sha1[offset + 1] & 0xFF) << 16
