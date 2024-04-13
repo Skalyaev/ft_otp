@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S python3 -B
 from hashlib import sha1
 from hmac import new as hmac_new
 from time import time

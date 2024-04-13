@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S python3 -B
 from argparse import ArgumentParser
 from os.path import exists
 from qrcode import make
