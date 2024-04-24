@@ -9,16 +9,11 @@
 
 ## Install
 ```bash
-sudo apt update -y
-sudo apt install -y python3
-sudo apt install -y python3-qrcode
+pip install qrcode
 ```
 ```bash
-link=Skalyaeve/ft_otp
-name=ft_otp
-
-git clone https://github.com/$link.git $name
-cd $name
+git clone https://github.com/Skalyaeve/ft_otp.git
+cd ft_otp
 ```
 
 ## Usage
